@@ -89,52 +89,52 @@ public class OrderApplicationServiceTest {
                 .build();
 
 
-        createOrderCommandWrongPrice = CreateOrderCommand.builder()
-                .customerId(CUSTOMER_ID)
-                .restaurantId(RESTAURANT_ID)
-                .address(OrderAddress.builder()
-                        .street("street_1")
-                        .postalCode("62-035")
-                        .city("Kórnik")
-                        .build())
-                .price(new BigDecimal("250.00"))
-                .items(List.of(OrderItem.builder()
-                                .productId(PRODUCT_ID)
-                                .quantity(1)
-                                .price(new BigDecimal("50.00"))
-                                .subTotal(new BigDecimal("50.00"))
-                                .build(),
-                        OrderItem.builder()
-                                .productId(PRODUCT_ID)
-                                .quantity(3)
-                                .price(new BigDecimal("50.00"))
-                                .subTotal(new BigDecimal("150.00"))
-                                .build()))
-                .build();
-
-
-        createOrderCommandWrongProductPrice = CreateOrderCommand.builder()
-                .customerId(CUSTOMER_ID)
-                .restaurantId(RESTAURANT_ID)
-                .address(OrderAddress.builder()
-                        .street("street_1")
-                        .postalCode("62-035")
-                        .city("Kórnik")
-                        .build())
-                .price(new BigDecimal("210.00"))
-                .items(List.of(OrderItem.builder()
-                                .productId(PRODUCT_ID)
-                                .quantity(1)
-                                .price(new BigDecimal("60.00"))
-                                .subTotal(new BigDecimal("60.00"))
-                                .build(),
-                        OrderItem.builder()
-                                .productId(PRODUCT_ID)
-                                .quantity(3)
-                                .price(new BigDecimal("50.00"))
-                                .subTotal(new BigDecimal("150.00"))
-                                .build()))
-                .build();
+//        createOrderCommandWrongPrice = CreateOrderCommand.builder()
+//                .customerId(CUSTOMER_ID)
+//                .restaurantId(RESTAURANT_ID)
+//                .address(OrderAddress.builder()
+//                        .street("street_1")
+//                        .postalCode("62-035")
+//                        .city("Kórnik")
+//                        .build())
+//                .price(new BigDecimal("250.00"))
+//                .items(List.of(OrderItem.builder()
+//                                .productId(PRODUCT_ID)
+//                                .quantity(1)
+//                                .price(new BigDecimal("50.00"))
+//                                .subTotal(new BigDecimal("50.00"))
+//                                .build(),
+//                        OrderItem.builder()
+//                                .productId(PRODUCT_ID)
+//                                .quantity(3)
+//                                .price(new BigDecimal("50.00"))
+//                                .subTotal(new BigDecimal("150.00"))
+//                                .build()))
+//                .build();
+//
+//
+//        createOrderCommandWrongProductPrice = CreateOrderCommand.builder()
+//                .customerId(CUSTOMER_ID)
+//                .restaurantId(RESTAURANT_ID)
+//                .address(OrderAddress.builder()
+//                        .street("street_1")
+//                        .postalCode("62-035")
+//                        .city("Kórnik")
+//                        .build())
+//                .price(new BigDecimal("210.00"))
+//                .items(List.of(OrderItem.builder()
+//                                .productId(PRODUCT_ID)
+//                                .quantity(1)
+//                                .price(new BigDecimal("60.00"))
+//                                .subTotal(new BigDecimal("60.00"))
+//                                .build(),
+//                        OrderItem.builder()
+//                                .productId(PRODUCT_ID)
+//                                .quantity(3)
+//                                .price(new BigDecimal("50.00"))
+//                                .subTotal(new BigDecimal("150.00"))
+//                                .build()))
+//                .build();
 
         Customer customer = new Customer();
         customer.setId(new CustomerId(CUSTOMER_ID));
