@@ -6,6 +6,8 @@
     <modules>
         <module>order-service</module>
         <module>common</module>
+        <module>infrastructure</module>
+        <module>infrastructure/kafka</module>
     </modules>
 
     <parent>
@@ -24,6 +26,9 @@
     <properties>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <mocito.vesion>4.3.1</mocito.vesion>
+        <spring-kafka.vesion>2.8.2</spring-kafka.vesion>
+        <kafka-avro-serialazer.version>7.0.1</kafka-avro-serialazer.version>
+        <avro.vesion>1.11.0</avro.vesion>
     </properties>
 
     <dependencyManagement>
@@ -56,6 +61,26 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>common-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-producer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-consumer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>kafka-config-data</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
