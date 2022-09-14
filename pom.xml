@@ -28,7 +28,7 @@
         <mocito.vesion>4.3.1</mocito.vesion>
         <spring-kafka.vesion>2.8.2</spring-kafka.vesion>
         <kafka-avro-serialazer.version>7.0.1</kafka-avro-serialazer.version>
-        <avro.vesion>1.11.0</avro.vesion>
+        <avro.version>1.11.0</avro.version>
     </properties>
 
     <dependencyManagement>
