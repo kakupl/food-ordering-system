@@ -63,7 +63,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
         }
     }
 
-    private void setOrderProductInformation( Order order,  Restaurant restaurant) {
+    private void setOrderProductInformation(Order order,  Restaurant restaurant) {
         order.getItems().forEach(orderItem -> restaurant.getProducts().forEach(restaurantProduct -> {
             Product currentProduct = orderItem.getProduct();
             if(currentProduct.equals(restaurantProduct)){

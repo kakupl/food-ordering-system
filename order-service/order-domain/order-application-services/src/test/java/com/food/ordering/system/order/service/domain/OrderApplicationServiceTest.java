@@ -19,15 +19,14 @@ import com.food.ordering.system.order.service.domain.ports.input.services.OrderA
 import com.food.ordering.system.order.service.domain.ports.output.repository.CustomerRepository;
 import com.food.ordering.system.order.service.domain.ports.output.repository.OrderRepository;
 import com.food.ordering.system.order.service.domain.ports.output.repository.RestaurantRepository;
-import com.sun.tools.javac.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.mockito.internal.matchers.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -142,9 +141,16 @@ public class OrderApplicationServiceTest {
 
         Restaurant restaurantResponse = Restaurant.builder()
                 .restaurantId(new RestaurantId(createOrderCommand.getRestaurantId()))
-                .products(List.of(new Product(new ProductId(PRODUCT_ID),"product-1",
-                        new Money(new BigDecimal("50.00"))),
-                        new Product(new ProductId(PRODUCT_ID),"product-2", new Money(new BigDecimal("50.00")))))
+                .products(List.of(
+                        new Product(
+                                new ProductId(PRODUCT_ID),"product-1",
+                                new Money(
+                                new BigDecimal("50.00"))),
+                        new Product(
+                                new ProductId(PRODUCT_ID),"product-2",
+                                new Money(
+                                new BigDecimal("50.00")))
+                ))
                 .active(true)
                 .build();
 
