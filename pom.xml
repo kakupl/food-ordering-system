@@ -27,7 +27,7 @@
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <mocito.vesion>4.3.1</mocito.vesion>
         <spring-kafka.vesion>2.8.2</spring-kafka.vesion>
-        <kafka-avro-serialazer.version>7.0.1</kafka-avro-serialazer.version>
+        <kafka-avro-serializer.version>7.0.1</kafka-avro-serializer.version>
         <avro.version>1.11.0</avro.version>
     </properties>
 
