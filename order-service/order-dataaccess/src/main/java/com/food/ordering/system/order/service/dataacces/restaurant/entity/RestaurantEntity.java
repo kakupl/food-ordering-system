@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,29 +20,29 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @IdClass(RestaurantEntityId.class)
-@Table(name = "order_restaurant", schema = "restaurant")
+@Table(name = "order_restaurant_m_view", schema = "restaurant")
 @Entity
 public class RestaurantEntity {
 
     @Id
-    private UUID id;
+    private UUID restaurantId;
     @Id
     private UUID productId;
     private String restaurantName;
-    private String restaurantActive;
+    private Boolean restaurantActive;
     private String productName;
-    private String productPrice;
+    private BigDecimal productPrice;
 
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final RestaurantEntity that = (RestaurantEntity) o;
-        return id.equals(that.id) && productId.equals(that.productId);
+        return restaurantId.equals(that.restaurantId) && productId.equals(that.productId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productId);
+        return Objects.hash(restaurantId, productId);
     }
 }
