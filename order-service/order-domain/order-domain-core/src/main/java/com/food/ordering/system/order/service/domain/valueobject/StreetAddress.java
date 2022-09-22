@@ -18,19 +18,19 @@ public class StreetAddress {
     }
 
 
-    UUID getId() {
+    public UUID getId() {
         return id;
     }
 
-    String getStreet() {
+    public String getStreet() {
         return street;
     }
 
-    String getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
 
-    String getCity() {
+    public String getCity() {
         return city;
     }
 
