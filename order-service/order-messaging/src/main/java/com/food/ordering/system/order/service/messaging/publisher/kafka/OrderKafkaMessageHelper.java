@@ -11,20 +11,21 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Component
 public class OrderKafkaMessageHelper {
 
-    public ListenableFutureCallback<SendResult<String, PaymentRequestAvroModel>>
-    getKafkaCallback( String paymentResponseTopicName, PaymentRequestAvroModel paymentRequestAvroModel) {
-        return new ListenableFutureCallback<SendResult<String, PaymentRequestAvroModel>>() {
+    public <T> ListenableFutureCallback<SendResult<String, T>>
+    getKafkaCallback( String responseTopicName, T requestAvroModel, String orderId, String requestAvroModelName) {
+        return new ListenableFutureCallback<SendResult<String, T>>() {
             @Override
             public void onFailure(final Throwable ex) {
-                log.error("Error while sending PaymentRequestAvroModel " + "message {} to topick {}", paymentRequestAvroModel.toString(), paymentResponseTopicName, ex);
+                log.error("Error while sending " + requestAvroModelName +
+                        "message {} to topick {}", requestAvroModel.toString(), responseTopicName, ex);
             }
 
             @Override
-            public void onSuccess(final SendResult<String, PaymentRequestAvroModel> result) {
+            public void onSuccess(final SendResult<String, T> result) {
                 RecordMetadata metadata = result.getRecordMetadata();
                 log.info("Received successful response from Kafka for order id: {} " +
                                 " Topic: {} Partition: {} Offset: {} Timestamp: {}",
-                        paymentRequestAvroModel.getOrderId(),
+                        orderId,
                         metadata.topic(),
                         metadata.partition(),
                         metadata.offset(),
